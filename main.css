@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: linear-gradient(rgb(0, 162, 255),rgb(0, 162, 255));
+    min-height: 100vh;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-column-gap: 4px;
+}
+
+.app-title{
+    color: #fff;
+    text-align: center;
+    grid-column: 1/13;
+}
