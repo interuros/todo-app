@@ -30,14 +30,10 @@ function showDescription(){
 
             descriptionOfItem.style.height = "auto";
             descriptionOfItem.style.paddingTop = "25px";
-        }   
-
+        } 
 
         console.log('clicked');
-        console.log(showdesc.length);
-        console.log(showdescParent);
-        console.log(showdesc);
-        console.log(descriptionOfItem);
+        
 
     };
 
@@ -102,7 +98,9 @@ function addToUI(){
         todoitem.appendChild(descriptionContainer);
 
         descriptionContainer.appendChild(tododate);
-        tododate.textContent = toDoList[i].date;
+        if(toDoList[i].date != 'NaN-NaN-NaN'){
+            tododate.textContent = toDoList[i].date;
+        }
 
         descriptionContainer.appendChild(todotime);
         todotime.textContent = toDoList[i].time;
