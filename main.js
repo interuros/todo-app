@@ -43,13 +43,14 @@ function showDescription(){
 
 };
 
+var itemId = 0;
 
-
-var ToDoItem = function(title, date, time, description){
+var ToDoItem = function(title, date, time, description, id){
     this.title = title;
     this.date = date;
     this.time = time;
     this.description = description;
+    this.id = id;
 }
 
 
@@ -73,6 +74,7 @@ function addToUI(){
     var removeItem = document.createElement('i');
     removeItem.classList.add('ion-close')
     removeItem.classList.add('delete')
+    removeItem.setAttribute('id', itemId);
 
     var showMore = document.createElement('i');
     showMore.classList.add('fas');
@@ -126,9 +128,11 @@ function addToDoItem(){
 
     var time = document.getElementById('time').value;
 
-    var toDoItem = new ToDoItem(title, date, time, description);
+    var toDoItem = new ToDoItem(title, date, time, description, itemId);
 
     toDoList.push(toDoItem);
+
+    itemId ++;
 
     console.log(title);
     console.log(description);
