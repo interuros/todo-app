@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TO DO APP</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <script src="main.js"></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>TO DO APP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	
 </head>
 <body>
-    <div class="container">
-        <h1 class="app-title">TO DO APP</h1>
-        <div class="todo-form">
-            <input type="text" name="title" id="title" placeholder="Title" required>
-            <textarea name="text" id="text" cols="30" rows="10" placeholder="Description"></textarea>
-            <input type="date" name="date" id="date" required>
-            <input type="time" name="hours" id="hours" min="1" max="24">
-            <input type="submit" value="ADD" class="submit">
-        </div>
-        <div class="todo-list">
-            <div class="todo-item">
-                <div>
-                <h4 class="todo-title">Suđe</h4>
-                <p class="todo-date">8-5-2015</p>
-                <p class="todo-time">10:30</p>
-                <i class="ion-close" id="delete"></i>
+	<div class="container">
 
-                <p class="todo-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos debitis hic odit dolorem repellat qui corrupti, quas molestiae rerum vel officiis tempora corporis impedit, quibusdam aut reprehenderit suscipit repellendus? Doloribus?</p>
-            </div>
-        </div>
-    </div>
+		<h1 class="app-title">TO DO APP</h1>
+
+		<div class="todo-form">
+			<input type="text" name="title" id="title" placeholder="Title" required>
+			<textarea name="text" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+			<input type="date" name="date" id="date" required>
+			<input type="time" name="hours" id="time" min="1" max="24">
+			<input type="submit" value="ADD" class="submit" id="submit">
+		</div>
+
+		<div class="todo-list">
+			<!--
+			<div class="todo-item">
+				<h4 class="todo-title">Suđe</h4>
+				<p class="todo-date">8-5-2015</p>
+				<p class="todo-time">10:30</p>
+				<i class="ion-close" id="delete"></i>   
+				<p class="todo-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos debitis hic odit dolorem repellat qui corrupti, quas molestiae rerum vel officiis tempora corporis impedit, quibusdam aut reprehenderit suscipit repellendus? Doloribus?</p>
+			</div>
+			-->
+			</div>
+			
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="main.js"></script>
 </body>
