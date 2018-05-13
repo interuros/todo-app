@@ -7,36 +7,46 @@ var toDoList = [];
 
 function showDescription(){
 
-    var todoItems = document.getElementsByClassName('todo-item');
+    var showdesc = document.getElementsByClassName('show-desc');
     var clicked = false;
+
+    
     
 
     var showDesc = function() {
 
-        var todoItemsChildren = this.children;
-        var description = todoItemsChildren[todoItemsChildren.length - 1];
+        var showdescParent = this.parentElement;
+        var parentChildren = showdescParent.children;
+        var descriptionOfItem = parentChildren[parentChildren.length - 1];
+
 
         if(clicked){
-            clicked = false;
-            description.style.height = '0';
-            description.style.paddingTop = '0px';
+            descriptionOfItem.style.height = "0";
+            descriptionOfItem.style.paddingTop = "0";
 
+            clicked = false;
         } else{
-            description.style.height = 'auto';
-            description.style.paddingTop = '15px';
-            
             clicked = true;
+
+            descriptionOfItem.style.height = "auto";
+            descriptionOfItem.style.paddingTop = "25px";
         }   
+
+
+        console.log('clicked');
+        console.log(showdesc.length);
+        console.log(showdescParent);
+        console.log(showdesc);
+        console.log(descriptionOfItem);
+
     };
 
-    for(i = 0; i < todoItems.length; i++){
-        todoItems[i].addEventListener('click', showDesc);
+    for(i = 0; i < showdesc.length; i++){
+        showdesc[i].addEventListener('click', showDesc);
     }
 
-    console.log('clicked');
-    
-
 };
+
 
 
 var ToDoItem = function(title, date, time, description){
@@ -68,23 +78,36 @@ function addToUI(){
     removeItem.classList.add('ion-close')
     removeItem.classList.add('delete')
 
+    var showMore = document.createElement('i');
+    showMore.classList.add('fas');
+    showMore.classList.add('fa-angle-down');
+    showMore.classList.add('show-desc');
+
+    var descriptionContainer = document.createElement('div');
+    descriptionContainer.classList.add('description');
+
     var todolist = document.querySelector('.todo-list');
 
     for(i= 0; i < toDoList.length; i++){
+
         todolist.appendChild(todoitem);
 
         todoitem.appendChild(todotitle);
         todotitle.textContent = toDoList[i].title;
 
-        todoitem.appendChild(tododate);
-        tododate.textContent = toDoList[i].date;
-
-        todoitem.appendChild(todotime);
-        todotime.textContent = toDoList[i].time;
-
         todoitem.appendChild(removeItem);
 
-        todoitem.appendChild(tododescription);
+        todoitem.appendChild(showMore);
+
+        todoitem.appendChild(descriptionContainer);
+
+        descriptionContainer.appendChild(tododate);
+        tododate.textContent = toDoList[i].date;
+
+        descriptionContainer.appendChild(todotime);
+        todotime.textContent = toDoList[i].time;
+
+        descriptionContainer.appendChild(tododescription);
         tododescription.textContent = toDoList[i].description;
 
     }
