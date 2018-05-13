@@ -166,8 +166,32 @@ input[type="submit"].submit{
 .show-desc{
     cursor: pointer;
     font-size: 30px;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
 }
 
 .show-desc:hover{
     color: rgb(154, 205, 50);
 }
+
+@keyframes rotate{
+    0%{
+        transform: rotateZ(0deg);
+    }
+
+    100%{
+        transform: rotateZ(180deg);
+    }
+}
+
+@keyframes rotateBack{
+    0%{
+        transform: rotateZ(180deg);
+    }
+
+    100%{
+        transform: rotateZ(0deg);
+    }
+}
+

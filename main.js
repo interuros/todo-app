@@ -19,10 +19,13 @@ function showDescription(){
         var parentChildren = showdescParent.children;
         var descriptionOfItem = parentChildren[parentChildren.length - 1];
 
+        
 
         if(clicked){
             descriptionOfItem.style.height = "0";
             descriptionOfItem.style.paddingTop = "0";
+
+            this.style.animationName = "rotateBack";
 
             clicked = false;
         } else{
@@ -30,6 +33,8 @@ function showDescription(){
 
             descriptionOfItem.style.height = "auto";
             descriptionOfItem.style.paddingTop = "25px";
+
+            this.style.animationName = "rotate";
         } 
 
         console.log('clicked');
