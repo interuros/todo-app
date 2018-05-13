@@ -2,6 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #262626;
+    outline: transparent;
+}
+
+:-moz-placeholder{
+    color: #262626;
+    font-size: 10px;
+}
+::-webkit-input-placeholder{
+    color: #262626;
+    font-size: 25px;
 }
 
 body{
@@ -19,4 +30,85 @@ body{
     color: #fff;
     text-align: center;
     grid-column: 1/13;
+    margin: 50px 0;
+}
+
+.todo-form{
+    grid-column: 1/7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo-form  > input{
+    width: 300px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.todo-form textarea{
+    resize: none;
+    width: 300px;
+    font-size: 17px;
+    padding: 10px;
+}
+
+input[type="submit"].submit{
+    padding: 10px 30px;
+    background-color: #fff;
+    color: #262626;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    width: 100px;
+    outline: transparent;
+}
+
+.todo-list{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    grid-column: 7/13;
+    align-items: center;
+}
+
+.todo-item{
+    width: 400px;
+    background-color: #fff;
+    border: 1px solid #333;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(2,auto);
+    position: relative;
+}
+
+.todo-title{
+    grid-column: 1/5;
+}
+
+.todo-date{
+    grid-column: 5/10;
+}
+
+.todo-time{
+    position: absolute;
+}
+
+#delete{
+    grid-column: 10/13;
+}
+
+.todo-description{
+    padding: 10px;
+    border: 1px solid #333;
+    grid-row: 2/3;
+    grid-column: 1/13;
+    overflow: hidden;
+    height: 0;
+    padding: 0;
+    border: none;
 }
