@@ -3,6 +3,47 @@
     adds event listener on todo-items on click in order to show their respective description
 */
 
+
+var setTime = (function(){
+    var currentdate = new Date();
+    var currentHour = currentdate.getHours();
+    var currentMinutes = currentdate.getMinutes();
+
+    console.log(currentHour);
+    console.log(currentMinutes);
+
+    currentHour = checkTime(currentHour);
+    currentMinutes = checkTime(currentMinutes);
+
+
+    console.log(currentHour);
+    console.log(currentMinutes);
+
+    document.getElementById('time').value = currentHour + ':' + currentMinutes;
+
+    function checkTime(i){
+        if(i < 10){
+            i = "0" + i;
+        }
+
+        return i;
+    };
+
+    return currentdate;
+
+})();
+
+
+var setDate = (function(){
+
+    var date = setTime;
+    var day = date.getDay();
+
+    console.log(date);
+    
+})();
+
+
 var toDoList = [];
 
 function showDescription(){

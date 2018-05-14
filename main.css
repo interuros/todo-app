@@ -20,28 +20,45 @@
 
 body{
     min-height: 100vh;
+
+    display: grid;
 }
 
 .container{
     display: grid;
-    grid-template-columns: repeat(12,1fr);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto);
+
+    grid-template-areas: 
+                        "title title"
+                        "form  list";
+
     grid-column-gap: 4px;
     background-color: whitesmoke;
+}
+
+@media only screen and (max-width: 800px){
+    .container{
+        grid-template-areas: 
+                            "title title"
+                            "form form"
+                            "list list";
+    }
 }
 
 .app-title{
     color: #fff;
     text-align: center;
-    grid-column: 1/13;
+    grid-area: title;
     padding: 50px 0;
     background-color: rgb(93, 194, 26);
 }
 
 .todo-form{
-    grid-column: 1/7;
     display: flex;
     flex-direction: column;
     align-items: center;
+    grid-area: form;
 }
 
 .todo-form  > input{
@@ -96,9 +113,9 @@ input[type="submit"].submit{
 .todo-list{
     display: flex;
     flex-direction: column;
-    grid-column: 7/13;
     align-items: center;
     padding: 30px;
+    grid-area: list;
 }
 
 .todo-item{
