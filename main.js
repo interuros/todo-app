@@ -37,9 +37,26 @@ var setTime = (function(){
 var setDate = (function(){
 
     var date = setTime;
-    var day = date.getDay();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+
+    day = checkTime(day);
+    month = checkTime(month);
+
+    document.getElementById('date').value = [year, month, day].join('-');
 
     console.log(date);
+
+    function checkTime(i){
+        if(i < 10){
+            i = "0" + i;
+        }
+
+        return i;
+    };
+    
     
 })();
 
@@ -120,7 +137,7 @@ function addToUI(){
     var removeItem = document.createElement('i');
     removeItem.classList.add('ion-close')
     removeItem.classList.add('delete')
-    removeItem.setAttribute('id', itemId);
+    
 
     var showMore = document.createElement('i');
     showMore.classList.add('fas');
@@ -140,6 +157,7 @@ function addToUI(){
         todotitle.textContent = toDoList[i].title;
 
         todoitem.appendChild(removeItem);
+        removeItem.setAttribute('id', toDoList[i].id);
 
         todoitem.appendChild(showMore);
 
@@ -160,7 +178,7 @@ function addToUI(){
 };
 
 
-function addToDoItem(){
+function addToList(){
     var title = document.getElementById('title').value;
     var description = document.getElementById('description').value;
     var reverseDate = new Date(document.getElementById('date').value)
@@ -189,15 +207,53 @@ function addToDoItem(){
     
   
 }
+
+function removeButton(){
+
+    var remove = document.getElementsByClassName('delete');
+
+
+    for(i = 0; i < remove.length; i++){
+        remove[i].addEventListener('click', removeFromList);
+    }
+
+};
+
+
+function removeFromList(){
+    var thisID = this.id;
+
+    var thisParent = this.parentElement;
+
+    console.log(thisParent);
+    
+
+    console.log(thisID);
+
+    for(var i = 0; i < toDoList.length; i++){
+        if(toDoList[i].id == thisID){
+
+            toDoList.splice(i,1);
+            thisParent.remove();
+
+            console.log(toDoList);
+            break;
+        }
+    }
+    
+
+}
     
     
 function add(){
-    addToDoItem();
+    addToList();
     addToUI();
     showDescription();
+    removeButton();
 }
 
 document.getElementById('submit').addEventListener('click', add);
+
 
 
 
