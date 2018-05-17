@@ -144,6 +144,7 @@ input[type="submit"].submit{
 .todo-time,
 .delete{
     text-align: center;
+    transition: .2s;
 }
 
 .todo-date{
@@ -186,6 +187,13 @@ input[type="submit"].submit{
     animation-duration: .2s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
+}
+
+
+.delete:hover{
+    color: #fff;
+    background-color: red;
+    transform: scale(1.1);
 }
 
 .show-desc:hover{
